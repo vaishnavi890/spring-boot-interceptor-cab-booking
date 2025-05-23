@@ -14,14 +14,12 @@ public class Driver {
     private String phone;
     private Cab cabDetails;
 
-    public Driver(String name, String license) {
+    public Driver(String name, String license, String phone) {
     }
 
-    public void setDriverId(int i) {
-    }
 
-    public int getDriverId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 

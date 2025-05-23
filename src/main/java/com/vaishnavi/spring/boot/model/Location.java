@@ -14,14 +14,10 @@ public class Location {
     private String state;
     private String zipCode;
 
-    public Location(String latitude, String longitude) {
-    }
 
-    public void setLocationId(int i) {
-    }
 
-    public int getLocationId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 

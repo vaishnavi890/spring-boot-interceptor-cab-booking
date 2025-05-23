@@ -14,14 +14,12 @@ public class BookingHistory {
     private String bookingDate;
     private String status;
 
-    public BookingHistory(int userId, int rideId) {
+    public BookingHistory(int userId, int rideId, String status, String timestamp) {
     }
 
-    public void setBookingId(int i) {
-    }
 
-    public int getBookingId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 

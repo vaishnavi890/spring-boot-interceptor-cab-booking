@@ -14,14 +14,9 @@ public class RideRequest {
     private String dropoffLocation;
     private String status; // e.g., "Pending", "Accepted", "Completed"
 
-    public RideRequest(int userId, String from, String to) {
-    }
 
-    public void setRequestId(int i) {
-    }
+    public void setId(int i) {
 
-    public int getRequestId() {
-        return 0;
     }
 }
 

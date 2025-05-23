@@ -18,11 +18,9 @@ public class Cab {
     public Cab(String model, String plate, int driverId) {
     }
 
-    public void setCabId(int i) {
-    }
 
-    public int getCabId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 

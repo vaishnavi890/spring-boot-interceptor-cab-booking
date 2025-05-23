@@ -13,24 +13,10 @@ public class User {
     private String email;
     private String phone;
 
-    public User(String name, String email) {
+    public User(String name, String email, String phone) {
     }
 
-    public User() {
-
-    }
-
-    public void setUserId(int i) {
-    }
-
-    public int getUserId() {
-        return 0;
-    }
-
-    public void setName(String name) {
-    }
-
-    public void setEmail(String email) {
+    public void setId(int i) {
     }
 }
 

@@ -14,14 +14,10 @@ public class Notification {
     private String timestamp;
     private boolean isRead;
 
-    public Notification(int userId, String message) {
-    }
 
-    public void setNotificationId(int i) {
-    }
 
-    public int getNotificationId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 

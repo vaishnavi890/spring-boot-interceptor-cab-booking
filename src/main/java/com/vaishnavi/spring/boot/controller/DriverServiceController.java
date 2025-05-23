@@ -17,28 +17,28 @@ public class DriverServiceController {
     @Autowired
     private DriverService service;
 
-    @GetMapping("/driver")
+    @RequestMapping("/driver")
     public ResponseEntity<List<Driver>> getDrivers() {
-        logger.info("/driver GET invoked");
+        logger.info("/drivers request invoked");
         return new ResponseEntity<>(service.retrieveDrivers(), HttpStatus.OK);
     }
 
     @PostMapping("/driver")
-    public ResponseEntity<String> addDriver(@RequestParam String name, @RequestParam String license) {
-        logger.info("/driver POST invoked");
-        Driver driver = new Driver(name, license);
+    public ResponseEntity<String> addDriver(@RequestParam String name, @RequestParam String email, @RequestParam String phone) {
+        logger.info("/addDriver request invoked");
+        Driver driver = new Driver(name, email, phone);
         return new ResponseEntity<>(service.storeDriver(driver) ? "Driver added" : "Driver NOT added", HttpStatus.OK);
     }
 
     @DeleteMapping("/driver/{id}")
-    public ResponseEntity<String> deleteDriver(@PathVariable int id) {
-        logger.info("/driver DELETE invoked");
-        return new ResponseEntity<>(service.deleteDriver(id) ? "Driver deleted" : "Driver NOT deleted", HttpStatus.OK);
+    public ResponseEntity<String> removeDriver(@PathVariable int id) {
+        logger.info("/removeDriver request invoked");
+        return new ResponseEntity<>(service.deleteDriver(id) ? "Driver removed" : "Driver NOT removed", HttpStatus.OK);
     }
 
     @GetMapping("/driver/{id}")
     public ResponseEntity<String> searchDriver(@PathVariable int id) {
-        logger.info("/driver GET by ID invoked");
+        logger.info("/searchDriver request invoked");
         return new ResponseEntity<>(service.search(id).toString(), HttpStatus.OK);
     }
 }

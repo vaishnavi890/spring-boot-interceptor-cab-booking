@@ -16,11 +16,11 @@ public class Ride {
     private double fare;
     private String status;
 
-    public void setRideId(int i) {
+    public Ride(int userId, int driverId, String pickup, String dropoff) {
     }
 
-    public int getRideId() {
-        return 0;
+
+    public void setId(int i) {
     }
 }
 

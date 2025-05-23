@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cab Booking</title>
+</head>
+<body>
+<form action="/ride" method="post">
+    <table border="0" title="Book a Cab">
+        <tr>
+            <td>Pickup Location:</td>
+            <td><input type="text" name="pickup" id="pickup"></td>
+        </tr>
+        <tr>
+            <td>Dropoff Location:</td>
+            <td><input type="text" name="dropoff" id="dropoff"></td>
+        </tr>
+        <tr>
+            <td>Cab Type:</td>
+            <td>
+                <select name="cabType" id="cabType">
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
+                    <option value="SUV">SUV</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Pickup Time:</td>
+            <td><input type="datetime-local" name="pickupTime" id="pickupTime"></td>
+        </tr>
+        <tr>
+            <td>Fare Estimate (optional):</td>
+            <td><input type="text" name="fare" id="fare"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Book Cab"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,58 +1,43 @@
 package com.vaishnavi.spring.boot.service;
 
 import com.vaishnavi.spring.boot.model.RideRequest;
-import com.vaishnavi.spring.boot.model.User;
 import com.vaishnavi.spring.boot.repository.RideRequestRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RideRequestService {
 
     private static final Logger logger = LoggerFactory.getLogger(RideRequestService.class);
-    private RideRequestRepository repo = new RideRequestRepository();
 
-    public List<User> getAllRequests() {
-        logger.info("Inside RideRequestService.getAllRequests()");
-        return repo.findAll();
-    }
-
-    public boolean addRequest(RideRequest request) {
-        logger.info("Inside RideRequestService.addRequest()");
-        return repo.save(request);
-    }
-
-    public boolean deleteRequest(int requestId) {
-        logger.info("Inside RideRequestService.deleteRequest()");
-        return repo.delete(requestId);
-    }
-
-    public User getRequestById(int requestId) {
-        logger.info("Inside RideRequestService.getRequestById()");
-        return repo.findById(requestId);
-    }
-
-    public boolean updateRequest(RideRequest request) {
-        logger.info("Inside RideRequestService.updateRequest()");
-        return repo.update(request);
-    }
+    @Autowired
+    private RideRequestRepository repo;
 
     public List<RideRequest> retrieveRideRequests() {
-        return List.of();
+        logger.info("/inside the RideRequestService.retrieveRideRequests()");
+        return repo.retrieve();
     }
 
-    public boolean storeRideRequest(RideRequest req) {
-        return false;
+    public boolean storeRideRequest(RideRequest request) {
+        logger.info("/inside the RideRequestService.storeRideRequest()");
+        return repo.store(request);
     }
 
     public boolean deleteRideRequest(int id) {
-        return false;
+        logger.info("/inside the RideRequestService.deleteRideRequest()");
+        return repo.delete(id);
+    }
+
+    public RideRequest searchRideRequest(int id) {
+        logger.info("/inside the RideRequestService.searchRideRequest()");
+        return repo.search(id);
     }
 
     public Object search(int id) {
         return null;
     }
 }
-
-

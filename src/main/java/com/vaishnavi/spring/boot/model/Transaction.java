@@ -14,14 +14,10 @@ public class Transaction {
     private String transactionDate;
     private String transactionType; // "Credit", "Debit"
 
-    public Transaction(int userId, double amount, String type) {
-    }
 
-    public void setTransactionId(int i) {
-    }
 
-    public int getTransactionId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 

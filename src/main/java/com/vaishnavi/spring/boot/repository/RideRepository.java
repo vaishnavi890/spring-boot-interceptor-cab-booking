@@ -3,9 +3,12 @@ package com.vaishnavi.spring.boot.repository;
 import com.vaishnavi.spring.boot.model.Ride;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class RideRepository implements EntityRepository<Ride> {
     private static final Logger logger = LoggerFactory.getLogger(RideRepository.class);
     private List<Ride> rideList = new ArrayList<>();
@@ -14,8 +17,15 @@ public class RideRepository implements EntityRepository<Ride> {
     @Override
     public boolean store(Ride ride) {
         logger.info("Inside RideRepository.store()");
-        ride.setRideId(++index);
-        rideList.add(ride);
+        ride.setId(++index);
+        rideList.add(index, ride);
+        return true;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        logger.info("Inside RideRepository.delete()");
+        rideList.remove(id);
         return true;
     }
 
@@ -28,13 +38,7 @@ public class RideRepository implements EntityRepository<Ride> {
     @Override
     public Ride search(int id) {
         logger.info("Inside RideRepository.search()");
-        return rideList.stream().filter(r -> r.getRideId() == id).findFirst().orElse(null);
-    }
-
-    @Override
-    public boolean delete(int id) {
-        logger.info("Inside RideRepository.delete()");
-        return rideList.removeIf(r -> r.getRideId() == id);
+        return rideList.get(id);
     }
 }
 

@@ -4,46 +4,37 @@ import com.vaishnavi.spring.boot.model.User;
 import com.vaishnavi.spring.boot.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-    private UserRepository repo = new UserRepository();
-
-    public List<User> getAllUsers() {
-        logger.info("Inside UserService.getAllUsers()");
-        return repo.findAll();
-    }
-
-    public boolean registerUser(User user) {
-        logger.info("Inside UserService.registerUser()");
-        return repo.save(user);
-    }
-
-    public boolean deleteUser(int userId) {
-        logger.info("Inside UserService.deleteUser()");
-        return repo.delete(userId);
-    }
-
-    public User getUserById(int userId) {
-        logger.info("Inside UserService.getUserById()");
-        return repo.findById(userId);
-    }
-
-    public boolean updateUser(User user) {
-        logger.info("Inside UserService.updateUser()");
-        return repo.update(user);
-    }
+    @Autowired
+    private UserRepository repo;
 
     public List<User> retrieveUsers() {
-        return List.of();
+        logger.info("/inside the UserService.retrieveUsers()");
+        return repo.retrieve();
     }
 
     public boolean storeUser(User user) {
-        return false;
+        logger.info("/inside the UserService.storeUser()");
+        return repo.store(user);
+    }
+
+    public boolean deleteUser(int id) {
+        logger.info("/inside the UserService.deleteUser()");
+        return repo.delete(id);
+    }
+
+    public User searchUser(int id) {
+        logger.info("/inside the UserService.searchUser()");
+        return repo.search(id);
     }
 
     public Object search(int id) {

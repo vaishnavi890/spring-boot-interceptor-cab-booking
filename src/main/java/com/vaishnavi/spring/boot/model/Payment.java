@@ -18,11 +18,9 @@ public class Payment {
     public Payment(int rideId, int userId, double amount, String method) {
     }
 
-    public void setPaymentId(int i) {
-    }
 
-    public int getPaymentId() {
-        return 0;
+    public void setId(int i) {
+
     }
 }
 
